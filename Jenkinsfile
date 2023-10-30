@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
@@ -8,10 +7,10 @@ pipeline {
                 sh 'mvn clean'  // Exemple avec Apache Maven, adaptez à votre projet
             }
         }    
-         stage('Build') {
+         stage('Compile') {
             steps {
                 // Étape pour compiler votre projet
-                sh 'mvn clean'  // Exemple avec Apache Maven, adaptez à votre projet
+                sh 'mvn compile'  
             }
         } 
     
