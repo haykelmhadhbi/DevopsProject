@@ -21,10 +21,10 @@ pipeline {
                 }
              }
         }
-          stage('JUNIT/MOCKITO') {
+          stage('TEST') {
                     steps {
                         // Exécute les tests unitaires avec Maven et affiche les rapports
-                        sh 'mvn test'
+                        sh './mvnw test'
                     }
                     post {
                         always {
