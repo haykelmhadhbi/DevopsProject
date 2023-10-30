@@ -26,6 +26,11 @@ pipeline {
                         // Exécute les tests unitaires avec Maven et affiche les rapports
                         sh 'mvn test'
                     }
+                    post {
+                        always {
+                            junit '**/target/surefire-reports/TEST-*.xml'
+                        }
+                    }
                 }
     
     }
