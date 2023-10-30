@@ -21,6 +21,12 @@ pipeline {
                 }
              }
         }
+          stage('JUNIT/MOCKITO') {
+                    steps {
+                        // Exécute les tests unitaires avec Maven et affiche les rapports
+                        sh 'mvn test'
+                    }
+                }
     
     }
 }
