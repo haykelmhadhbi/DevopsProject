@@ -63,18 +63,6 @@ class OperatorServiceImplTest {
     @Test
     void addOperator() {
 
-//        Operator op = new Operator();
-//        op.setFname("iheb");
-//
-//        Operator operatorResult = operatorService.addOperator(op);
-//
-//        assertThat(operatorResult).isNotNull();
-//        assertThat(operatorResult.getIdOperateur()).isNotNull();
-//        assertThat(operatorResult.getFname()).isEqualTo("iheb");
-//
-//        Operator operatorDataBase = operatorRepository.findById(operatorResult.getIdOperateur()).orElse(null);
-//        assertThat(operatorDataBase).isNotNull();
-//        assertThat(operatorDataBase.getFname()).isEqualTo("iheb");
 
         Operator  op = new Operator (1L, "haykel", "mhadhbi", "love");
         Mockito.when(operatorRepository.save(Mockito.any(Operator.class))).thenReturn(op);
