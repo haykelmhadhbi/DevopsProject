@@ -21,6 +21,29 @@ pipeline {
                 }
              }
         }
+        stage('JUNIT/MOCKITO') {
+                    steps {
+                        // Exécute les tests unitaires avec Maven et affiche les rapports
+                        sh 'mvn test'
+                    }
+                    post {
+                        always {
+                            junit '**/target/surefire-reports/TEST-*.xml'
+                        }
+                    }
+                }
+          stage(' Artifact construction') {
+            steps {
+                // Étape pour construire l'artefact (par exemple, un fichier JAR)
+                sh 'mvn package'
+            }
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+                }
+            }
+        }
+   
           
     
     }
