@@ -17,13 +17,10 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-@SpringBootTest
 @ExtendWith(MockitoExtension.class)
 class ActivitySectorImplTest {
-    @Autowired
     @Mock
     ActivitySectorRepository activitySectorRepository;
-    @Autowired
     @InjectMocks
     ActivitySectorImpl activitySector;
     ActivitySector actSector=new ActivitySector(3L,"l4", "aa", null);
