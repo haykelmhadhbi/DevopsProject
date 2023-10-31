@@ -24,7 +24,6 @@ import java.util.Optional;
 
 
 @ExtendWith(MockitoExtension.class)
-@SpringBootTest
 class ProductServiceImplTest {
 
     @InjectMocks
