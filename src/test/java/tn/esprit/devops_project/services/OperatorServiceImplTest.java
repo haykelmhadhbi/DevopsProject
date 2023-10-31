@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Optional;
 
 //
-@SpringBootTest
 @ExtendWith(MockitoExtension.class)
 class OperatorServiceImplTest {
 
