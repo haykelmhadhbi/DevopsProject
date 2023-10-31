@@ -18,12 +18,10 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-@SpringBootTest
 @ExtendWith(MockitoExtension.class)
 
 class SupplierServiceImplTest {
     Supplier supplier = new Supplier(1L,"code1", "label1",SupplierCategory.ORDINAIRE, null, null);
-    @Autowired
     @Mock
    // SupplierRepository supplierRepository ;
     SupplierRepository supplierRepository = Mockito.mock(SupplierRepository.class);
