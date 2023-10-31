@@ -43,16 +43,7 @@ pipeline {
                 }
             }
         }
-        stage('Publish to Nexus') {
-    steps {
-        // Assurez-vous que vous avez configuré les informations de votre serveur Nexus dans Jenkins
-        // Cela peut être fait via les paramètres globaux de Jenkins ou un fichier de configuration (settings.xml) dans votre projet Maven.
-        
-        // Utilisez le plugin Maven Nexus Staging pour publier l'artefact sur le dépôt Nexus
-        sh 'mvn clean deploy'
-    }
-
-    }
+   
     
     }
 }
