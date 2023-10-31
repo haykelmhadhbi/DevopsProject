@@ -32,6 +32,18 @@ pipeline {
                         }
                     }
                 }
+          stage(' Artifact construction') {
+            steps {
+                // Étape pour construire l'artefact (par exemple, un fichier JAR)
+                sh 'mvn package'
+            }
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
+                }
+            }
+        }
+    }
     
     }
 }
