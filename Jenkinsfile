@@ -1,7 +1,7 @@
 pipeline {
     agent any
       tools {
-      maven "Maven3"
+      maven "M2_HOME"
    }
   environment {
      NEXUS_VERSION= "http"
