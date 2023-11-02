@@ -53,6 +53,21 @@ pipeline {
                 }
             }
         }
+
+     stage('Download JAR from Nexus and Build Docker Image') {
+            steps {
+                script {
+                    def jarUrl = 'http://localhost:8081/repository/maven-releases/com/example/CoCoMarket/0.0.1/CoCoMarket-0.0.1.jar'
+                    sh "curl -o CoCoMarket-0.0.1.jar ${jarUrl}"
+
+                    def dockerImage = 'imagebackend'
+                    def dockerFile = 'Dockerfile'
+
+                    // Construire l'image Docker
+                    sh "docker build -t ${dockerImage} -f ${dockerFile} ."
+                }
+            }
+        }
    
           
     
