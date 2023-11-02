@@ -1,8 +1,5 @@
 pipeline {
     agent any
-      environment {
-        NEXUS_CREDENTIALS = credentials('nexusConfig')
-    }  
  stages {
         stage('Build') {
             steps {
@@ -46,14 +43,16 @@ pipeline {
                 }
             }
         }
-         stage('MVN_DEPLOY_TO_NEXUS') {
+       stage('MVN_DEPLOY_TO_NEXUS') {
             steps {
                 script {
-                  sh 'mvn deploy --global-settings /usr/share/maven/conf/settings.xml -DskipTests'
+                    withCredentials([usernamePassword(credentialsId: 'nexusConfig', usernameVariable: 'SONAR_USERNAME', passwordVariable: 'SONAR_PASSWORD')]) {
+                        def mavenCmd = 'mvn deploy -DskipTests'
+                        sh mavenCmd
+                    }
                 }
             }
         }
-
    
           
     
