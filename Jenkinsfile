@@ -1,5 +1,15 @@
 pipeline {
     agent any
+      tools {
+      maven "M2_HOME"
+   }
+  environment {
+     NEXUS_VERSION= "http"
+     NEXUS_URL= "http://192.168.33.10:8081"
+     NEXUS_REPOSITORY = "maven-releases"
+     NEXUS_CREDENTIAL_ID= "nexus-credentials"
+}
+
     stages {
         stage('Build') {
             steps {
