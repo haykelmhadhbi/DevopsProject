@@ -1,6 +1,5 @@
 FROM openjdk:8-jdk-alpine
-
-
+EXPOSE 8082
 # Définissez le répertoire de travail dans le conteneur
 WORKDIR /app
 
