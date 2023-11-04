@@ -57,7 +57,7 @@ pipeline {
          stage('Download JAR from Nexus and Build Docker Image') {
             steps {
                 script {
-                    def jarUrl = 'http://localhost:8081/repository/maven-releases/com/example/DevOps_Project/0.0.1/DevOps_Project-2.1.jar'
+                    def jarUrl = 'http://localhost:8081/repository/maven-releases/tn/esprit/DevOps_Project/2.1/DevOps_Project-2.1.jar'
                     sh "curl -o DevOps_Project-2.1.jar ${jarUrl}"
 
                     def dockerImage = 'imagebackend'
