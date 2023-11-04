@@ -13,25 +13,22 @@ pipeline {
                 sh 'mvn compile'  
             }
         } 
+       stage('test junit ') {
+            steps {
+              junit '**/target/surefire-reports/TEST-*.xml'
+                jacoco()
+ 
+            }
+        } 
         
          stage ('Code Quality'){
             steps {
                     withSonarQubeEnv('SonarQubeServer') {
-                sh 'mvn sonar:sonar'
+                sh 'mvn sonar:sonar -Dsonar.login=squ_4c0376f480a00cb291609bff6737499b27b2d95e -Dsonar.host.url=http://192.168.33.10:9000/'
                 }
              }
         }
-        stage('JUNIT/MOCKITO') {
-                    steps {
-                        // Exécute les tests unitaires avec Maven et affiche les rapports
-                        sh 'mvn test'
-                    }
-                    post {
-                        always {
-                            junit '**/target/surefire-reports/TEST-*.xml'
-                        }
-                    }
-                }
+  
           stage(' Artifact construction') {
             steps {
                 // Étape pour construire l'artefact (par exemple, un fichier JAR)
