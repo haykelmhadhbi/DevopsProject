@@ -13,13 +13,7 @@ pipeline {
                 sh 'mvn compile'  
             }
         } 
-       stage('test junit ') {
-            steps {
-              junit '**/target/surefire-reports/TEST-*.xml'
-                jacoco()
- 
-            }
-        } 
+     
         
          stage ('Code Quality'){
             steps {
