@@ -17,8 +17,8 @@ pipeline {
          stage ('Code Quality'){
             steps {
                     withSonarQubeEnv('SonarQubeServer') {
-                    sh 'mvn sonar:sonar -Dsonar.login=squ_4c0376f480a00cb291609bff6737499b27b2d95e -Dsonar.host.url=http://192.168.33.10:9000/'
-r'
+                  sh 'mvn sonar:sonar -Dsonar.login=squ_4c0376f480a00cb291609bff6737499b27b2d95e -Dsonar.host.url=http://192.168.33.10:9000/'
+
                 }
              }
         }
