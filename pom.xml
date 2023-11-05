@@ -138,6 +138,7 @@
             </plugin>
 
         </plugins>
+             <finalName>DevOps_Project-2.1</finalName>
     </build>
 
 
