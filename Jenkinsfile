@@ -13,15 +13,7 @@ pipeline {
                 sh 'mvn compile'  
             }
         } 
-        
-         stage ('Code Quality'){
-            steps {
-                    withSonarQubeEnv('SonarQubeServer') {
-                  sh 'mvn sonar:sonar' 
-
-                }
-             }
-        }
+     
         stage('JUNIT/MOCKITO') {
                     steps {
                         // Exécute les tests unitaires avec Maven et affiche les rapports
@@ -33,6 +25,31 @@ pipeline {
                         }
                     }
                 }
+        stage('JaCoCo Code Coverage') {
+            steps {
+                script {
+                    sh 'mvn clean test org.jacoco:jacoco-maven-plugin:prepare-agent'
+                }
+            }
+                post {
+                    success {
+                        jacoco(
+                            execPattern: '**/build/jacoco/*.exec',
+                            classPattern: '**/build/classes/java/main',
+                            sourcePattern: '**/src/main'
+            )
+        }
+    }
+            }
+         stage ('Code Quality'){
+            steps {
+                    withSonarQubeEnv('SonarQubeServer') {
+                  sh 'mvn sonar:sonar' 
+
+                }
+             }
+        }
+     
           stage(' Artifact construction') {
             steps {
                 // Étape pour construire l'artefact (par exemple, un fichier JAR)
