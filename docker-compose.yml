@@ -15,8 +15,7 @@ services:
       SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/devopsgroupe?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true"
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
-    networks:
-      - mynetwork
+    
 
   # MySQL service
   mysql:
@@ -26,10 +25,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: devops
-    networks:
-      - mynetwork
+    
     ports:
       - "3309:3306"
-networks:
-  mynetwork:
-    driver: bridge
+
