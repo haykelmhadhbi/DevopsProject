@@ -92,11 +92,7 @@ pipeline {
                     }
                 }
 
-     stage('Nettoyage des conteneurs Docker') {
-    steps {
-        sh "docker compose down"
-    }
-}
+
 
 
  
