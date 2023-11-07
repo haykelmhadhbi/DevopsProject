@@ -92,6 +92,15 @@ pipeline {
                     }
                 }
 
+     stage('Publish Metrics to Prometheus') {
+    steps {
+        prometheus(
+            prometheusJobPath: '/etc/prometheus/prometheus.yml',
+            customDashboardUrl: 'http://192.168.33.10:3000'
+        )
+    }
+}
+
    
 
 
