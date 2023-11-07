@@ -12,7 +12,7 @@ services:
     depends_on:
       - mysql
     environment:
-      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/devops?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3309/devops?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true"
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     networks:
@@ -29,7 +29,7 @@ services:
     networks:
       - mynetwork
     ports:
-      - "3306:3306"
+      - "3309:3309"
 networks:
   mynetwork:
     driver: bridge
