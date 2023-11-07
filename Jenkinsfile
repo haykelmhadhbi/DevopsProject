@@ -92,15 +92,6 @@ pipeline {
                     }
                 }
 
- // stage('Prometheus Metrics') {
- //            steps {
- //                // Utilisez le plugin Prometheus pour publier des métriques Jenkins à Prometheus.
- //                prometheus(
- //                    customDashboardUrl: 'http://192.168.33.10:3000'  // Remplacez par l'URL de votre tableau de bord Grafana
- //                )
- //            }
- //        }
-
    
 
 
