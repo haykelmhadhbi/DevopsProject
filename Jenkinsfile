@@ -61,6 +61,17 @@ pipeline {
                 }
             }
         }
+
+        stage('MVN_DEPLOY_TO_NEXUS') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'nexusConfig', usernameVariable: 'SONAR_USERNAME', passwordVariable: 'SONAR_PASSWORD')]) {
+                        def mavenCmd = 'mvn deploy -DskipTests'
+                        sh mavenCmd
+                    }
+                }
+            }
+        }
      
          stage('Download JAR from Nexus and Build Docker Image') {
             steps {
@@ -83,16 +94,7 @@ pipeline {
                     }
                 }
 
-       stage('MVN_DEPLOY_TO_NEXUS') {
-            steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: 'nexusConfig', usernameVariable: 'SONAR_USERNAME', passwordVariable: 'SONAR_PASSWORD')]) {
-                        def mavenCmd = 'mvn deploy -DskipTests'
-                        sh mavenCmd
-                    }
-                }
-            }
-        }
+    
 
    
 
