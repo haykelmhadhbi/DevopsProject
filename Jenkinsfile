@@ -13,7 +13,7 @@ pipeline {
                 sh 'mvn compile'  
             }
         } 
- }
+   }
 }
      
         
@@ -32,6 +32,5 @@ pipeline {
    
           
     
-    }
-}
+ 
 
